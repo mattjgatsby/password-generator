@@ -1,9 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowLetter = true;
-var upLetter = true;
-var specChar = true;
-var num = true;
+var userWantsLow = true;
+var userWantsUp = true;
+var userWantsSC = true;
+var userWantsNum = true;
 var passLength;
 var lettersList = "abcdefghijklmnopqrstuvwxyz";
 var lowLetter = lettersList.split("");
@@ -16,7 +16,8 @@ var specialChar = [
   "'", ':', '"', '\\', '|', ',', '.',
   '<', '>', '/', '?',  '~', ']', '/'
 ]; 
-var numbers = [0,1,2,3,4,5,6,7,8,9];
+var numbers = "0123456798";
+var numArr = numbers.split("");
 
 // Write password to the #password input
 function writePassword() {
@@ -25,11 +26,14 @@ function writePassword() {
   grabUpperLetters();
   grabSpecialChar();
   grabNumbers();
-  var password = generatePassword();
+  makeMasterA();
+  console.log(makeMasterA());
+
+  var password = generatePassword(); 
   var passwordText = document.querySelector("#password");
   
 
-
+   
   passwordText.value = password;
 }
 
@@ -45,18 +49,37 @@ if(passLength >= 8 && passLength <= 128) {
 }
 
 function grabLowerLetter(){
-   lowLetter =confirm("Do you want to include lowercase letters?");
+   userWantsLow = confirm("Do you want to include lowercase letters?");
   }
 
 function grabUpperLetters(){
-    confirm("Do you want to include Uppercase letters?");
+    userWantsUp = confirm("Do you want to include Uppercase letters?");
 }
 
 function grabSpecialChar(){
-    confirm("Do you want to include Special Characters?");
+    userWantsSC = confirm("Do you want to include Special Characters?");
 }
 
 function grabNumbers(){
-    confirm("Do you want to include numbers?");
+    userWantsNum = confirm("Do you want to include numbers?");
 }
 
+function makeMasterA() {
+    var masterA = [];
+      if(userWantsLow) {
+        masterA = masterA.concat(lowLetter);
+      }
+      if(userWantsUp) {
+        masterA = masterA.concat(upperLetters);
+      }
+      if(userWantsSC) {
+        masterA = masterA.concat(specialChar);
+      }
+      if(userWantsNum) {
+        masterA = masterA.concat(numArr);
+      }
+    return masterA;
+}
+function pickChar() {
+  
+}
