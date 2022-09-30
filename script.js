@@ -27,15 +27,34 @@ function writePassword() {
   grabSpecialChar();
   grabNumbers();
   makeMasterA();
+  //pickChar();
   console.log(makeMasterA());
-
-  var password = generatePassword(); 
+  
+  //console.log(pickChar());
+  
+  var password = generatePassword() 
   var passwordText = document.querySelector("#password");
   
-
+  console.log(generatePassword());
    
   passwordText.value = password;
 }
+
+function generatePassword() {
+  var passwordLocal=""
+  var masterALocal= makeMasterA();
+  function chooseChar() {
+    var char = masterALocal[Math.floor(Math.random() * masterALocal.length)];
+    return char;
+  }
+    for(var i = 0; i < passLength; i++) {
+      passwordLocal = passwordLocal + chooseChar()
+    }
+    return passwordLocal;
+}
+
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -65,21 +84,18 @@ function grabNumbers(){
 }
 
 function makeMasterA() {
-    var masterA = [];
-      if(userWantsLow) {
-        masterA = masterA.concat(lowLetter);
-      }
-      if(userWantsUp) {
-        masterA = masterA.concat(upperLetters);
-      }
-      if(userWantsSC) {
-        masterA = masterA.concat(specialChar);
-      }
-      if(userWantsNum) {
-        masterA = masterA.concat(numArr);
-      }
-    return masterA;
-}
-function pickChar() {
-  
+  var masterA = [];
+    if(userWantsLow) {
+      masterA = masterA.concat(lowLetter);
+    }
+    if(userWantsUp) {
+      masterA = masterA.concat(upperLetters);
+    }
+    if(userWantsSC) {
+      masterA = masterA.concat(specialChar);
+    }
+    if(userWantsNum) {
+      masterA = masterA.concat(numArr);
+    }
+  return masterA;
 }
