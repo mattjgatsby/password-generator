@@ -1,9 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var lowLetter = true;
-var passLength 
-var lowerLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u", "v", "w", "x","y", "z"];
-var upperLetters = ["A","B", "C", "D", "E","F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var upLetter = true;
+var specChar = true;
+var num = true;
+var passLength;
+var lettersList = "abcdefghijklmnopqrstuvwxyz";
+var lowLetter = lettersList.split("");
+var upletterList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var upperLetters = upletterList.split("");
 var specialChar = [
   '[', '`', '!', '@',  '#', '$', '%',
   '^', '&', '*', '(',  ')', '_', '+',
@@ -38,16 +43,20 @@ if(passLength >= 8 && passLength <= 128) {
 
 }else(grabPassLength()); 
 }
+
 function grabLowerLetter(){
    lowLetter =confirm("Do you want to include lowercase letters?");
   }
+
 function grabUpperLetters(){
     confirm("Do you want to include Uppercase letters?");
 }
+
 function grabSpecialChar(){
     confirm("Do you want to include Special Characters?");
 }
+
 function grabNumbers(){
     confirm("Do you want to include numbers?");
 }
-function genPass()
+
