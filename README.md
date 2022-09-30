@@ -4,8 +4,10 @@
 This is a simple site that you can use to generate a password with the options to include lowercase letters, uppercase letter, special characters, and numbers with any length between 8 and 128 characters.
 I built this project with the intent to learn basic javascript functions, using inputs given by a user to generate a random password.
 
-## Visit the site!
+![Site Screenshot](./assets/images/passwordsitescreenshot.png)
 
+## Visit the site!
+[Vist!](https://mattjgatsby.github.io/password-generator/)
 ## Code Snippet
 
 In this code snippet, you can see how I used the math.floor and math.random methods to generate a random number from a given array.
